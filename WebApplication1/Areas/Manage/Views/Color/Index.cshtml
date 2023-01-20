@@ -1,0 +1,29 @@
+﻿@using WebApplication1.Models;
+@{
+    ViewData["Title"] = "Index";
+}
+@model IEnumerable<Color>
+<div class="container">
+    <a class="btn btn-primary my-3" asp-action="Create">Create</a>
+    <table class="table table-bordered table-responsive">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th colspan="2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td><a class="btn btn-danger" asp-area="Manage" asp-controller="Color" asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>
+                    <td><a class="btn btn-info" asp-area="Manage" asp-controller="Color" asp-action="Update" asp-route-id="@item.Id">Update</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
